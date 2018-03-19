@@ -2,12 +2,14 @@ import { createSelector } from 'reselect';
 import { getLocale } from 'state/locale/selectors';
 
 export const getFragments = state => state.fragments;
+export const getFragmentsIdList = state => state.fragments.list;
+export const getFragmentsMap = state => state.fragments.map;
 export const getWidgetTypes = state => state.fragments.widgetTypes;
 export const getPlugins = state => state.fragments.plugins;
 
 export const getFragmentList = createSelector(
-  getFragments,
-  fragments => fragments.list,
+  [getFragmentsIdList, getFragmentsMap],
+  (idList, fragmentMap) => idList.map(id => (fragmentMap[id])),
 );
 
 export const getFragmentSelected = createSelector(

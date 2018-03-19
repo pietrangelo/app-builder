@@ -2,6 +2,13 @@
 import { combineReducers } from 'redux';
 import { SET_SELECTED, SET_FRAGMENTS, SET_WIDGET_TYPES, SET_PLUGINS } from 'state/fragments/types';
 
+const toMap = array => array.reduce((acc, fragment) => {
+  acc[fragment.code] = fragment;
+  return acc;
+}, {});
+
+const toIdList = array => array.map(fragment => fragment.code);
+
 const selected = (state = {}, action = {}) => {
   switch (action.type) {
     case SET_SELECTED: {
@@ -14,7 +21,16 @@ const selected = (state = {}, action = {}) => {
 const list = (state = [], action = {}) => {
   switch (action.type) {
     case SET_FRAGMENTS: {
-      return action.payload.fragments;
+      return toIdList(action.payload.fragments);
+    }
+    default: return state;
+  }
+};
+
+const fragmentMap = (state = {}, action = {}) => {
+  switch (action.type) {
+    case SET_FRAGMENTS: {
+      return toMap(action.payload.fragments);
     }
     default: return state;
   }
@@ -42,6 +58,7 @@ const plugins = (state = [], action = {}) => {
 export default combineReducers({
   selected,
   list,
+  map: fragmentMap,
   widgetTypes,
   plugins,
 });

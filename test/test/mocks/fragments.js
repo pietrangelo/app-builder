@@ -112,6 +112,33 @@ export const LIST_FRAGMENTS_OK_PAGE_3 =
   },
 };
 
+export const FRAGMENTS_OK_NORMALIZED = {
+  fragments: {
+    list: ['myCode', 'myCode2'],
+    map: {
+      myCode: {
+        code: 'myCode',
+        isLocked: false,
+        widgetType: {
+          code: 'widgetcode',
+          title: 'Widget Title',
+        },
+        pluginCode: 'pluginCode',
+      },
+      myCode2: {
+        code: 'myCode2',
+        isLocked: false,
+        widgetType: {
+          code: 'widgetcode',
+          title: 'Widget Title',
+        },
+        pluginCode: 'pluginCode',
+      },
+    },
+  },
+  pagination: LIST_FRAGMENTS_OK_PAGE_1.metaData,
+};
+
 export const WIDGET_TYPES_OK = {
   payload: [
     {
