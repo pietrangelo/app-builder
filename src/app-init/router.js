@@ -36,6 +36,7 @@ export const ROUTE_USER_AUTHORITY = 'authorityPage';
 export const ROUTE_LABELS_ADD = 'labelsAdd';
 export const ROUTE_LABELS_AND_LANGUAGES = 'labelsAndLanguages';
 export const ROUTE_LABEL_ADD = 'labelAdd';
+export const ROUTE_USER_EDIT_PROFILE = 'userEditProfile';
 
 
 routerConfig(
@@ -69,6 +70,7 @@ routerConfig(
       { name: ROUTE_USER_ADD, path: '/user/add' },
       { name: ROUTE_USER_EDIT, path: '/user/edit/:username' },
       { name: ROUTE_USER_DETAIL, path: '/user/view/:username' },
+      { name: ROUTE_USER_EDIT_PROFILE, path: '/user/editProfile/:username' },
       { name: ROUTE_GROUP_LIST, path: '/group' },
       { name: ROUTE_GROUP_ADD, path: '/group/add' },
       { name: ROUTE_GROUP_DETAIL, path: '/group/view/:groupname' },

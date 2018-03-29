@@ -31,6 +31,7 @@ import {
   ROUTE_LABELS_AND_LANGUAGES,
   ROUTE_GROUP_DETAIL,
   ROUTE_LABELS_ADD,
+  ROUTE_USER_EDIT_PROFILE,
 } from 'app-init/router';
 
 import LoginFormContainer from 'ui/login/LoginFormContainer';
@@ -54,6 +55,7 @@ import UserListPage from 'ui/users/list/UserListPage';
 import UserAuthorityPageContainer from 'ui/users/authority/UserAuthorityPageContainer';
 import AddUserPage from 'ui/users/add/AddUserPage';
 import EditUserPage from 'ui/users/edit/EditUserPage';
+import EditProfileUserPage from 'ui/users/editProfile/EditProfileUserPage';
 import DetailUserPage from 'ui/users/detail/DetailUserPage';
 import ListGroupPage from 'ui/groups/list/ListGroupPage';
 import AddGroupPage from 'ui/groups/add/AddGroupPage';
@@ -94,6 +96,7 @@ const App = ({ route, username }) => {
     case ROUTE_USER_AUTHORITY: return <UserAuthorityPageContainer />;
     case ROUTE_USER_ADD: return <AddUserPage />;
     case ROUTE_USER_EDIT: return <EditUserPage />;
+    case ROUTE_USER_EDIT_PROFILE: return <EditProfileUserPage />;
     case ROUTE_USER_DETAIL: return <DetailUserPage />;
     case ROUTE_GROUP_LIST: return <ListGroupPage />;
     case ROUTE_GROUP_ADD: return <AddGroupPage />;

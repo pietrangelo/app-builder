@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
 import { DropdownKebab, MenuItem } from 'patternfly-react';
 import { LinkMenuItem, gotoRoute } from 'frontend-common-components';
-import { ROUTE_USER_AUTHORITY, ROUTE_USER_DETAIL } from 'app-init/router';
+import { ROUTE_USER_AUTHORITY, ROUTE_USER_DETAIL, ROUTE_USER_EDIT, ROUTE_USER_EDIT_PROFILE } from 'app-init/router';
 
 class UserListMenuActions extends Component {
   constructor(props) {
@@ -31,12 +31,13 @@ class UserListMenuActions extends Component {
     );
     return (
       <DropdownKebab pullRight id={`${this.props.username}-actions`}>
-
         <MenuItem
           className="UserListMenuAction__menu-item-edit"
+          onClick={() => gotoRoute(ROUTE_USER_EDIT, { username: this.props.username })}
         >
           <FormattedMessage id="app.edit" />
         </MenuItem>
+
         <LinkMenuItem
           id={`manageAuth-${this.props.username}`}
           route={ROUTE_USER_AUTHORITY}
@@ -46,6 +47,7 @@ class UserListMenuActions extends Component {
         />
         <MenuItem
           className="UserListMenuAction__menu-item-edit-profile"
+          onClick={() => gotoRoute(ROUTE_USER_EDIT_PROFILE, { username: this.props.username })}
         >
           <FormattedMessage id="user.action.editProfile" values={{ username: this.props.username }} />
         </MenuItem>
